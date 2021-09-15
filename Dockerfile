@@ -18,7 +18,6 @@ RUN microdnf install -y \
 ONBUILD ARG UID=1000
 ONBUILD RUN useradd -d /java -l -m -Uu ${UID} -r -s /bin/bash java && \
   chown -R ${UID}:${UID} /java
-USER 1000:1000
 
 ONBUILD USER ${UID}:${UID}
 ONBUILD ENV JAVA_OPTS="-Djava.net.preferIPv4Stack=true -Xmx1024m -Xms1024m"

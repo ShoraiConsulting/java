@@ -35,7 +35,7 @@ jobs:
           config: hadolint-ci.yaml
 
       - name: render docker-compose.yml
-        run: java_VERSION=${{ matrix.java }} envsubst <  docker-compose.yml.tmpl >  docker-compose.yml
+        run: JAVA_VERSION=${{ matrix.java }} envsubst <  docker-compose.yml.tmpl >  docker-compose.yml
 
       - name: Build image
         run: docker-compose -f docker-compose.yml build java

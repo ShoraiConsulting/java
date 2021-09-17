@@ -5,7 +5,7 @@ SHELL ["/bin/bash", "-c"]
 ARG JAVA_VERSION=11
 RUN microdnf install -y \
   gettext \
-  java-${JAVA_VERSION}-openjdk \
+  java-${JAVA_VERSION}-openjdk-devel \
   postgresql \
   mariadb \
   tar \

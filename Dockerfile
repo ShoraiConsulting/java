@@ -2,10 +2,10 @@ FROM registry.fedoraproject.org/fedora-minimal:34
 
 SHELL ["/bin/bash", "-c"]
 
-ARG JDK_VERSION=11
+ARG JAVA_VERSION=11
 RUN microdnf install -y \
   gettext \
-  java-${JDK_VERSION}-openjdk \
+  java-${JAVA_VERSION}-openjdk \
   postgresql \
   mariadb \
   tar \

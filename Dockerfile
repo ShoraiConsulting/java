@@ -10,10 +10,10 @@ RUN microdnf install -y \
   mariadb \
   tar \
   tzdata \
+  netcat \
   wget && \
   microdnf update -y && \
   microdnf clean all
-
 
 ONBUILD ARG UID=1000
 ONBUILD RUN useradd -d /java -l -m -Uu ${UID} -r -s /bin/bash java && \

@@ -52,8 +52,8 @@ jobs:
 
       - name: Tag image
         run: |
-          docker tag java-fedora:${{ matrix.java }} ${DOCKER_IMAGE}:${{ matrix.java }}
-          docker tag java-fedora:${{ matrix.java }} ${DOCKER_IMAGE}:${{ matrix.java }}-${{ github.run_number }}
+          docker tag java:${{ matrix.java }} ${DOCKER_IMAGE}:${{ matrix.java }}
+          docker tag java:${{ matrix.java }} ${DOCKER_IMAGE}:${{ matrix.java }}-${{ github.run_number }}
 
       - name: Log into registry
         # This is where you will update the PAT to GITHUB_TOKEN

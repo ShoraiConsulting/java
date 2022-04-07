@@ -1,19 +1,20 @@
-FROM registry.fedoraproject.org/fedora-minimal:34
+FROM registry.fedoraproject.org/fedora-minimal:35
 
 SHELL ["/bin/bash", "-c"]
 
 ARG JAVA_VERSION=11
-RUN microdnf install -y \
-  gettext \
-  java-${JAVA_VERSION}-openjdk-devel \
-  postgresql \
-  mariadb \
-  tar \
-  tzdata \
-  netcat \
-  wget && \
-  microdnf update -y && \
-  microdnf clean all
+RUN microdnf --nodocs -y upgrade && \
+    microdnf --nodocs -y install \
+    gettext \
+    java-${JAVA_VERSION}-openjdk-devel \
+    postgresql \
+    mariadb \
+    tar \
+    tzdata \
+    netcat \
+    wget && \
+    microdnf --nodocs -y reinstall tzdata && \
+    microdnf clean all
 
 ONBUILD ARG UID=1000
 ONBUILD RUN useradd -d /java -l -m -Uu ${UID} -r -s /bin/bash java && \
